@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AARP page meta tag noindex follow</title>
+    <link href="/static/css/styles.css" rel="stylesheet">
+    <link rel="icon" href="/static/favicon.ico"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;0,800;1,100;1,400;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/submit-handler.js"></script>
+
+    <div class="header">
+        <h1>AARP - Automation</h1>
+        <h2>AARP page meta tags checking for noindex follow</h2>
+    </div>
+    <div id="front-page">
+        <h3>Step 1: Download the template csv file</h3>
+        <a href="template_urls_aarp_input_csv.csv" download="template_urls_aarp_input_csv.csv">Download</a>
+        <h3>Step 2: Upload the file and click on submit</h3>
+        <input type="file" id="fileInput" name="file">
+		<h3>or </h3>
+        <h3>Enter the URL</h3>
+        <textarea id="url" name="url_inp" cols="60" rows="5"  ></textarea>
+        <input type="button" id="submit-btn" value="Submit" onclick="submitTest('aarp-page-meta-tags-noindex-follow')">
+        <img id="submit-loader" src="/static/images/loader.gif" alt="loader"/>
+        <p id="report-error"></p>
+    </div>
+    <div id="report-page">
+        <p>Your report is ready. Click on the button to download the report</p>
+        <input type="hidden" id="report-name" name="report-name" value="">
+        <a href="" id="report-link" download>Download Report</a>
+        <p id="download-success"></p>
+        <p id="download-error"></p>
+        <p>You can also download the updated input csv file that you have uploaded for testing</p>
+        <a href="input-files/template_urls_aarp_input_csv.csv" download="template_urls_aarp_input_csv.csv">Download Input CSV</a>
+    </div>
+</body>

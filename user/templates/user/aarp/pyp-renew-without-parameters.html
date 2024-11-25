@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PYP Renew Without Parameters</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', path='/favicon.ico') }}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;0,800;1,100;1,400;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script type="text/javascript">
+        function uploadFile() {
+            document.getElementById("report-error").style.display = 'none';
+            document.getElementById("report-error").innerHTML = "";
+            var formData = new FormData();
+            var fileInput = document.getElementById('fileInput');
+            console.log(fileInput.files[0]);
+            console.log(fileInput.files[0]);
+            if (fileInput.files[0]) {
+                formData.append("classified_id", 2);
+                formData.append("file", fileInput.files[0]);
+                document.getElementById("submit-btn").style.display = 'none';
+                document.getElementById("submit-loader").style.display = 'block';
+                axios({
+                        method: 'post',
+                        url: '/pyp-renew-without-parameters',
+                        data: formData,
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'multipart/form-data'
+                        },
+                    })
+                    .then(response => {
+                        console.log(response);
+                        console.log(response.status)
+                        if(response.status == 200) {
+                            document.getElementById("front-page").style.display = 'none';
+                            document.getElementById("report-page").style.display = 'block';
+                            document.getElementById("report-name").value = response.data.file_name;
+                        } else {
+                            document.getElementById("report-error").style.display = 'block';
+                            document.getElementById("report-error").innerHTML = "There is some error in the report. Please try again";
+                        }
+                    })
+                    .catch(error => {
+                        document.getElementById("report-error").style.display = 'block';
+                        document.getElementById("report-error").innerHTML = response.error;
+                    });
+            } else {
+                document.getElementById("report-error").innerHTML = "Please upload the file";
+                document.getElementById("report-error").style.display = 'block';
+            }
+        }
+
+        function downloadReport() {
+            var reportName = document.getElementById('report-name').value;
+            var url = '/report/' + reportName;
+            console.log(reportName);
+            if (reportName) {
+                axios({
+                        method: 'get',
+                        url: url,
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'multipart/form-data'
+                        },
+                    })
+                    .then(response => {
+                        console.log(response);
+                        console.log(response.status)
+                        if(response.status == 200) {
+                            document.getElementById("report-btn").style.display = 'none';
+                            document.getElementById("download-success").style.display = 'block';
+                            document.getElementById("download-success").innerHTML = response.data.message
+                        } else {
+                            document.getElementById("download-error").style.display = 'block';
+                            document.getElementById("download-error").innerHTML = "There is some error while downloading the report";
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        }
+    </script>
+    <div class="header">
+        <h1>AARP - Automation</h1>
+        <h2>PYP Renew without parameters</h2>
+    </div>
+    <div id="front-page">
+        <h3>Step 1: Download the template csv file</h3>
+        <a href="template_pyp_page_urls_without_query_parameters_csv.csv" download="template_pyp_page_urls_without_query_parameters_csv.csv">Download</a>
+        <h3>Step 2: Upload the file and click on submit</h3>
+        <input type="file" id="fileInput" name="file">
+        <input type="button" id="submit-btn" value="Submit" onclick="uploadFile()">
+        <img id="submit-loader" src="{{ url_for('static', path='/loader.gif') }}" alt="loader"/>
+        <p id="report-error"></p>
+    </div>
+    <div id="report-page">
+        <p>Your report is ready. Click on the button to download the report</p>
+        <input type="hidden" id="report-name" name="report-name" value="">
+        <input type="button" id="report-btn" value="Download Report" onclick="downloadReport()">
+        <p id="download-success"></p>
+        <p id="download-error"></p>
+        <p>You can also download the input csv file you have uploaded for testing</p>
+        <a href="input-files/template_pyp_page_urls_without_query_parameters_csv.csv" download="template_pyp_page_urls_without_query_parameters_csv.csv">Download Input CSV</a>
+    </div>
+</body>
+</html>

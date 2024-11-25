@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Page title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('user_bp.static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>User Page</h1>
+            <img src="{{ url_for('user_bp.static', filename='images/py-flask.webp') }}" alt="Py Flask" class="hero-img">
+            <br /><br />
+            <a href="#">User Page Link</a>
+            <br />
+            <a href="{{ url_for('admin_bp.home') }}">Link to Admin Page</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
