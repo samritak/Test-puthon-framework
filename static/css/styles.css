@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fc;
+    display: flex;
+    
+    }
+
+.heading{
+            text-align: center;
+            margin-top: 50px;    
+}
+
+.user-form, .login-form {
+    margin-top: 95px;
+
+}
+
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background-color: #4e73df;
+    position: fixed;
+}
+
+.sidebar-brand {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image{
+    width: 100%;
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin: 12px 0;
+}
+
+.sidebar-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.sidebar-nav a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.main-content {
+    margin-left: 260px;
+    padding: 20px;
+    width: calc(100% - 260px);
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.profile-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.tabs {
+    margin-bottom: 20px;
+    display:flex; 
+    justify-content : space-between;
+    tab-size : 60px;
+}
+
+.tab {
+    padding: 30px;
+    border-radius : 4px;
+    box-shadow : rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   
+}
+
+
+
+.element-style{
+    border-left:4px solid #008000;
+}
+
+
+.tabs button {
+    background-color: #4e73df;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+.tabs button.active {
+    background-color: #5a5c69;
+}
+
+.tabcontent {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #e3e6f0;
+    width: 180px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-box {
+    width: 48%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+}
+
+.tables {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 60px;
+}
+
+
+.tables img {
+    width: 20px;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #4e73df;
+    color: #fff;
+}
+
+
+#Tab1 {
+    border-left: 4px solid blue;
+}
+#Tab2 {
+    border-left: 4px solid green;
+}
+#Tab3 {
+    border-left: 4px solid red;
+}
+#Tab4 {
+    border-left:4px solid cyan;
+}
+#Tab5 {
+    border-left:4px solid yellow;
+}
+
+
+
+table, th, td {
+	border: 1px solid black;
+  	border-collapse: collapse;
+}
+th, td {
+  	padding: 10px;
+}
+th {
+  	background-color: #FDDF95;
+}
+colgroup {
+  	width: 250px;
+}
+
+
+
+.profile-info{
+    position: relative;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 150px;
+    top: 40px;
+}
+
+.dropdown-menu .dropdown-item {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ddd;
+}
+
+.profile-info:hover .dropdown-menu {
+    display: block;
+}
+
+.grid-container{
+    display: grid
+    border  1px solid red;
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px, 1fr));
+    gap: 15px;
+    justify-content : center;
+}
+
+@media only screen and (min-width: 768px){
+    .tablecontent {
+        display: flex;
+        flex-wrap: wrap;
+        width : 500px
+    
+    }
+
+}
+
+@media only screen and (min-width: 500px) and (max-width: 700px) {
+    body {
+        background-color: red;
+    }
+}
+
+.sidebar-font a{
+    font-size: 15px;
+    padding: 5px 0;
+    }
+
+.logo{
+    width: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.riflogo{
+     width:120px;
+     margin-bottom: 20px;
+     margin-top: 25px;
+}
+.container {
+    width: 1440px;
+    margin: 0 auto;
+}
+
+.header{
+    display:flex;
+    justify-content:end;
+}
+
+.heading{
+    
+    text-align: left;
+    position: absolute;
+    margin: 0;
+    top: 20px;
+    left: 20px;
+}
+
+h1{
+    position:relative;
+    left: 10px;
+    top: 0px;
+    right: 30px;
+}
+
+.tabsection {
+    margin-top: 95px;
+}
+.container-fluid {
+    padding-left: 0;
+}
+
+.login-form{
+    width: 50%
+}

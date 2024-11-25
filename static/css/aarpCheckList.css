@@ -1,0 +1,122 @@
+img.aarp_icon {
+  width: 250px;
+  position: relative;
+  top: -97px;
+  mix-blend-mode: multiply;
+} 
+.mytabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -60px;
+    font-family: Arial, sans-serif;
+  }
+.mytabs input[type="radio"]:checked + label {
+    /* background: #4e73df;
+    color: #fff; */
+
+  background: #fff;
+  color: #121212;
+  border-left: 4px solid blue;
+  width: 180px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-right: 30px;
+  }
+.mytabs .tab {
+    width: 100%;
+    order: 1;
+    padding: 0;
+    box-shadow: unset;
+    display: none;
+  }
+.header-checkList {
+    background: #4e73df;
+    text-align: center;
+    margin-top: 20px;
+}
+#front-page, #report-page, #image-page {
+    max-width: 1023px;
+    margin: 10px auto;
+}
+#front-page a, #report-page a {
+    background: #4e73df;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 22px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    display: block;
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+     box-sizing: unset;
+}
+#front-page input, #image-page input {
+    display: block;
+    cursor: pointer;
+}
+#submit-btn, #submit-btn2 {
+    margin: 10px 0;
+    background: #4e73df;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    padding: 8px 22px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+
+.mytabs input[type="radio"] {
+    display: none;
+  }
+.header-checkList h2 {
+    color: #fff;
+    font-size: 28px;
+    padding: 0 0 10px;
+  }
+
+.header-checkList h1 {
+    color: #fff;
+    padding: 10px 0;
+}
+
+#front-page h3, #image-page h3 {
+    color: #344055;
+    margin: 0 0 10px;
+    font-size: 1.1em;
+}
+
+#front-page, #report-page, #image-page {
+    max-width: 1023px;
+    margin: 10px 0;
+  }
+  .mytabs label {
+    font-weight: bold;
+    padding: 20px;
+    background: #fff;
+    color: #121212;
+    width: 180px;
+    border-radius: 8px;
+    border: 1px solid #cecece;
+    cursor: pointer;
+    display: inline-block;
+
+}
+#report-page,
+#img-report-page,
+#report-error,
+#download-success,
+#download-error,
+#submit-loader,
+#submit-loader2 {
+  display: none;
+}
+
+.mytabs input[type="radio"]:checked + label + .tab {
+  display: block;
+}

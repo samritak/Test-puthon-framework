@@ -1,0 +1,27 @@
+class Global_Env_Data:
+    PROJECT_NAME = "AARP AUTOMATION"
+    SERVER_NAME = "http://127.0.0.1:8000/"
+    DEFAULT_SEM_JOIN_CAMPAIGN_ID = "UDFLTTCP"
+    DEFAULT_SEM_RENEW_CAMPAIGN_ID = "ZDFLTTCP"
+    DEFAULT_SOC_JOIN_CAMPAIGN_ID = "UDFLTTCS"
+    DEFAULT_SOC_RENEW_CAMPAIGN_ID = "ZDFLTTCS"
+    DEFAULT_DIS_JOIN_CAMPAIGN_ID = "UDFLTTCD"
+    DEFAULT_DIS_RENEW_CAMPAIGN_ID = "ZDFLTTCD"
+    DEFAULT_JOIN_CAMPAIGN_ID = "UDFLTTC"
+    DEFAULT_RENEW_CAMPAIGN_ID = "ZDFLTTC"
+    MULTI_URLS = r'/user/Reports/input_files/multi_urls.csv'
+    CSV_FILE_PATH = r'user/Reports/input_files/multi_urls.csv'
+    IMAGE_FILE_PATH = r'user/Reports/image_compare/screenshot/'
+    CHROME = 'chrome'
+    FIREFOX = 'firefox'
+    LG_COPY_TEXT_VERIFICATION = "1.800.516.2941"
+    MEM_COPY_TEXT_VERIFICATION = "1.866.654.5572"
+    NOINDEX_NOFOLLOW = "noindex, nofollow"
+    INDEX_FOLLOW = ('"index, follow"')
+    NOINDEX_FOLLOW = "noindex, follow"
+    INCORRECT_PREMIUM_NAME = "&amp;"
+    VALID_HREF = "https"
+    EMAIL_SENDER_NAME = 'QA Automation'
+    EMAIL_SENDER = 'tctools@targetclose.com'
+    EMAIL_PASSWORD = 'TCTOOLS???'
+    EMAIL_RECEIVER = 'basavaraj@targetclose.com'
