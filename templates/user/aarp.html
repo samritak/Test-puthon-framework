@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AARP Tests</title>
+    <link rel="stylesheet" href="{{ url_for('user_bp.static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('user_bp.static', filename='css/aarpCheckList.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;0,800;1,100;1,400;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebarsection">
+            <div class="sidebar">
+                <div class="sidebar-brand">
+                    <img class="image" src="{{ url_for('user_bp.static', filename='images/tccc.png') }}" alt="Company logo">
+                </div>
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="{{ url_for('user_bp.dashboard') }}" class="Dashdiv">
+                            <img src="{{ url_for('user_bp.static', filename='images/dashboard.png') }}" alt="Dashboard Icon">
+                            Dashboard
+                        </a>
+                    </li>
+                    <hr>
+                    <li class="sidebar-font">
+                        <a href="{{ url_for('user_bp.aarp_tests') }}" class="aarpDiv">
+                            <img src="{{ url_for('user_bp.static', filename='images/aarp.png') }}" alt="aarp Icon">
+                            AARP
+                        </a>
+                    </li>
+                    <li class="sidebar-font">
+                        <a href="javascript:void(0)">
+                            <img src="{{ url_for('user_bp.static', filename='images/inogen.png') }}" alt="Utilities Icon">
+                            Inogen
+                        </a>
+                    </li>
+                    <li class="sidebar-font">
+                        <a href="javascript:void(0)">
+                            <img src="{{ url_for('user_bp.static', filename='images/RIF.png') }}" alt="Pages Icon">
+                            RIF
+                        </a>
+                    </li>
+                    <li class="sidebar-font">
+                        <a href="javascript:void(0)">
+                            <img src="{{ url_for('user_bp.static', filename='images/jaya.png') }}" alt="Charts Icon">
+                            Jaya
+                        </a>
+                    </li>
+                    <li class="sidebar-font">
+                        <a href="javascript:void(0)">
+                            <img src="{{ url_for('user_bp.static', filename='images/GG.png') }}" alt="gg Icon">
+                            GreetingGenie
+                        </a>
+                    </li>
+                    <hr>
+                    <li class="sidebar-font">
+                        <a href="javascript:void(0)">
+                            <img src="{{ url_for('user_bp.static', filename='images/chart.png') }}" alt="Charts Icon">
+                            Charts
+                        </a>
+                    </li>
+                    <li class="sidebar-font">
+                        <a href="javascript:void(0)">
+                            <img src="{{ url_for('user_bp.static', filename='images/report.png') }}" alt="Tables Icon">
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+               
+                <div class="profile-info">
+                    <img class="aarp_icon" style="display: none;" src="{{ url_for('user_bp.static', filename='images/AARPimage.png') }}" alt="AARP logo">
+                    <img class="profile-picture" src="{{ url_for('user_bp.static', filename='images/user.png') }}" alt="Profile Picture">
+                    
+                    <div class="dropdown-menu">
+                        <!-- <a href="#" class="dropdown-item">Login</a> -->
+                        <a href="{{ url_for('user_bp.logout') }}" class="dropdown-item">Log Out</a>
+                    </div>
+                    <span>{% if session.name %} {{ session.name }} {% endif %}</span>
+                </div>
+               
+            </div>
+            <div class="defaultSec" style="width: 90%;">
+                <div class="aarpCheckList">
+                    <img class="aarp_icon" src="{{ url_for('user_bp.static', filename='images/AARPimage.png') }}" alt="AARP logo">
+                    <div class="mytabs aarp_tabs">
+                        <input type="radio" id="tabmaster" name="mytabs" checked="checked">
+                        <label for="tabmaster">Master Checklist</label>
+                        <div class="tab">
+                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+                            <!-- <script type="text/javascript" src="{{ url_for('user_bp.static', filename='js/submit-handler.js') }}"></script> -->
+                            <script type="text/javascript" src="{{ url_for('user_bp.static', filename='js/submit-handler.js') }}"></script>
+
+                            <div class="header-checkList">
+                                <h1>AARP - Automation</h1>
+                                <h2>Functionality Test</h2>
+                            </div>
+                            <div id="front-page">
+                                <h3>Step 1: Download the template csv file</h3>
+                                <a href="{{ url_for('user_bp.static', filename='csv/template_urls_aarp_input_csv.csv') }}" download="template_urls_aarp_input_csv.csv">Download</a> 
+<!--                                <a href="template_urls_aarp_input_csv.csv"
+                                    download="template_urls_aarp_input_csv.csv">Download</a> -->
+                                <h3>Step 2: Upload the file and click on submit</h3>
+                                <input type="file" id="fileInput" name="file">
+                                <h3>or </h3>
+                                <h3>Enter the URL</h3>
+                                <textarea id="url" name="url_inp" cols="60" rows="5"></textarea>
+                                <input type="button" id="submit-btn" value="Submit" onclick="submitTest('aarp-dashboard')">
+                                <img id="submit-loader" src="{{ url_for('user_bp.static', filename='images/loader.gif') }}" alt="loader"/>
+                                <p id="report-error"></p>
+                            </div>
+                            <div id="report-page">
+                                <p>Your report is ready. Click on the button to download the report</p>
+                                <input type="hidden" id="report-name" name="report-name" value="">
+                                <a href="" id="report-link" download>Download Report</a>
+                                <p id="download-success"></p>
+                                <p id="download-error"></p>
+                                <p>You can also download the updated input csv file that you have uploaded for testing</p>
+                                <a href="{{ url_for('user_bp.static', filename='input_files/template_urls_aarp_input_csv.csv') }}" download="template_urls_aarp_input_csv.csv">Download Input CSV</a>
+                            </div>
+                        </div>
+                        <input type="radio" id="tabui" name="mytabs">
+                        <label for="tabui">UI Comparison</label>
+                        <div class="tab">
+                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+                            <!-- <script type="text/javascript" src="/static/js/submit-handler.js"></script> -->
+                            <script type="text/javascript" src="{{ url_for('user_bp.static', filename='js/submit-handler.js') }}"></script>
+
+                            <div class="header-checkList">
+                                <h1>AARP - Automation</h1>
+                                <h2> UI Image Comparison</h2>
+                            </div>
+                            <div id="image-page">
+                                <h3>Step 1: Upload the figma screenshot</h3>
+                                <input type="file" id="ImageInput" name="Imagefile">
+                                <h3>Step 2: Select comparison type</h3>
+                    <!--			<div class="dropdown">-->
+                    <!--			  <button class="dropbtn">Mode</button>-->
+                    <!--			  <div class="dropdown-content">-->
+                    <!--				<a href="#">Full Page</a>-->
+                    <!--				<a href="#">Hero section</a>-->
+                    <!--			  </div>-->
+                                <select id="comparison_select">
+                                <option value="Full page">Full Page</option>
+                                <option value="Hero section">Hero section</option>
+                                </select>
+                    <!--			</div>-->
+                                <h3>Step 3: Enter the URL and click on submit</h3>
+                                <textarea id="Imageurl" name="Image_url_inp" cols="60" rows="5"  ></textarea>
+                                <input type="button" id="submit-btn2" value="Submit" onclick="submitImageTest()">
+                                <img id="submit-loader2" src="{{ url_for('user_bp.static', filename='images/loader.gif') }}" alt="loader"/>
+                                <p id="report-error2"></p>
+                            </div>
+                            <div id="img-report-page">
+                            <p>Your reports are ready</p>
+                            <p> Click on the button to download the Chrome Reports</p>
+                            <input type="hidden" id="img-report-name1" name="report-name" value="">
+                            <a href="" id="img-report-link1" download>Chrome colour Report</a>
+                            <p></p>
+                            <input type="hidden" id="img-report-name2" name="report-name" value="">
+                            <a href="" id="img-report-link2" download>Chrome Grey Report</a>
+                            <p>Click on the button to download the Firefox Reports</p>
+                            <input type="hidden" id="img-report-name3" name="report-name" value="">
+                            <a href="" id="img-report-link3" download>Firefox colour Report</a>
+                            <p></p>
+                            <input type="hidden" id="img-report-name4" name="report-name" value="">
+                            <a href="" id="img-report-link4" download>Firefox Grey Report</a>
+                            <p id="img-download-success"></p>
+                            <p id="img-download-error"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://ddxp5xijf3rk2.cloudfront.net/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
+    
+</body>
+
+</html>
