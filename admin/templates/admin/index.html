@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('admin_bp.static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <!-- <h1>Welcome admin - {% if session.name %} {{ session.name }} {% endif %}</h1>
+            <br/><br/>
+            <a class="btn btn-primary" type="button" href="{{ url_for('admin_bp.users') }}">User List</a> &nbsp;&nbsp;
+            <a class="btn btn-danger" type="button" href="{{ url_for('admin_bp.logout') }}">Logout</a> -->
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <img class="img" src="{{ url_for('admin_bp.static', filename='images/tccc.png') }}" alt="Company logo">
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="#">
+                    <img src="{{ url_for('admin_bp.static', filename='images/dashboard.png') }}" alt="Dashboard Icon">
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{{ url_for('admin_bp.static', filename='images/settingstool.png') }}"
+                        alt="Components Icon">
+                    Components
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{{ url_for('admin_bp.static', filename='images/toolicon.png') }}" alt="Utilities Icon">
+                    Utilities
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{{ url_for('admin_bp.static', filename='images/pagesicon.png') }}" alt="Pages Icon">
+                    Pages
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{{ url_for('admin_bp.static', filename='images/charticon.png') }}" alt="Charts Icon">
+                    Charts
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="{{ url_for('admin_bp.static', filename='images/tableicon.png') }}" alt="Tables Icon">
+                    Tables
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <h1>Dashboard</h1>
+            <div class="profile-info">
+                <img src="{{ url_for('admin_bp.static', filename='images/user.png') }}" alt="Profile Picture">
+                <span>{% if session.name %} {{ session.name }} {% endif %}</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="tabcontent" id="Tab1">
+                <h3>Content for Tab 1</h3>
+                <p>This is where content for Tab 2 will go.</p>
+            </div>
+            <div class="tabcontent" id="Tab2">
+                <h3>Content for Tab 2</h3>
+                <p>This is where content for Tab 2 will go.</p>
+            </div>
+            <div class="tabcontent" id="Tab3">
+                <h3>Content for Tab 3</h3>
+                <p>This is where content for Tab 3 will go.</p>
+            </div>
+            <div class="tabcontent" id="Tab4">
+                <h3>Content for Tab 4</h3>
+                <p>This is where content for Tab 4 will go.</p>
+            </div>
+        </div>
+        <div class="tables">
+            <table>
+                <tr>
+                    <th>Earnings(Monthly)</th>
+                    <th>Earnings(Anually)</th>
+                    <th>Tasks</th>
+                    <th>Pending Requests</th>
+                </tr>
+                <tr>
+                    <td>Anna Fitzgerald</td>
+                    <td>Staff Writer</td>
+                    <td>example@company.com</td>
+                    <td>Something</td>
+                </tr>
+                <tr>
+                    <td>John Smith</td>
+                    <td>Marketing Manager</td>
+                    <td>example2@company.com</td>
+                    <td>Something</td>
+                </tr>
+                <tr>
+                    <td>Zendaya Grace</td>
+                    <td>CEO</td>
+                    <td>example2@company.com</td>
+                    <td>Something</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+
+
+</html>

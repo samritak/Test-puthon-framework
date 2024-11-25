@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('admin_bp.static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Users List</h1>
+            <div class="search-box">
+                <h4 class="row search-header">Search</h4>
+                <form method="POST" action="{{ url_for('admin_bp.users') }}" class="login-form needs-validation"
+                    novalidate>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label class="form-label" for="name">Name:</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label class="form-label" for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label class="form-label" for="phone">Phone:</label>
+                            <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+            </div>
+
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.first_name }} {{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.phone }}</td>
+                    <tr>
+                        {% endfor %}
+
+                        <div class="paginate">
+                            <!-- {% if users.has_prev %}
+                            <a href="{{ url_for('admin_bp.users', page=users.prev_num) }}"> Prev </a>
+                            {% else %}
+                            Prev
+                            {% endif %} |
+                            {% if users.has_next %}
+                            <a href="{{ url_for('admin_bp.users', page=users.next_num) }}"> Next </a>
+                            {% else %}
+                            Next
+                            {% endif %} -->
+
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    {% if users.has_prev %}
+                                    <li class="page-item"> <a class="page-link"
+                                            href="{{ url_for('admin_bp.users', page=users.prev_num) }}">Previous</a>
+                                    </li>
+                                    {% else %}
+                                    <li class="page-item"><a class="page-link btn disabled" href="#">Previous</a></li>
+                                    {% endif %}
+
+                                    {% for page in users.iter_pages(left_edge=3, right_edge=3) %}
+                                    {% if page %}
+
+                                    {% if page==users.page %}
+                                    <li class="page-item active"><a class="page-link"
+                                            href="{{ url_for('admin_bp.users', page=page) }}">{{ page }}</a></li>
+                                    {% else %}
+                                    <li class="page-item"><a class="page-link"
+                                            href="{{ url_for('admin_bp.users', page=page) }}">{{ page }}</a></li>
+                                    {% endif %}
+
+                                    {% else %}
+                                    <li class="page-item disabled" id="example_ellipsis"><a href="#"
+                                            class="page-link">…</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                    {% if users.has_next %}
+                                    <li class="page-item"> <a class="page-link"
+                                            href="{{ url_for('admin_bp.users', page=users.next_num) }}">Next</a></li>
+                                    {% else %}
+                                    <li class="page-item"><a class="page-link btn disabled" href="#">Next</a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                </tbody>
+            </table>
+            <br /><br />
+            <a class="btn btn-primary" type="button" href="{{ url_for('admin_bp.dashboard') }}">Home</a>&nbsp;&nbsp;
+            <a class="btn btn-danger" type="button" href="{{ url_for('admin_bp.logout') }}">Logout</a>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

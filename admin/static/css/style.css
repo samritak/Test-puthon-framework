@@ -1,0 +1,44 @@
+/* body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1 {
+    color: tomato;
+} */
+
+.container {
+    padding: 40px 0;
+}
+
+.hero-img {
+    width: 300px;
+    margin-left: -55px;
+}
+
+.user-form, .login-form {
+    padding-top: 20px;
+    width: 80%;
+}
+
+.alert-msg {
+    color: tomato;
+}
+
+.search-box {
+    padding: 30px;
+    border: 1px solid;
+    margin: 50px 0;
+}
+
+.search-header {
+    padding-left: 15px;
+}
+
+.paginate {
+    padding: 15px 0;
+}
+
+.table thead th {
+    background-color: lightblue;
+}
+
+
