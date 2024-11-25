@@ -5,4 +5,4 @@ PyMySQL==1.1.1
 selenium==4.8.3
 opencv-python==4.10.0.84
 numpy==2.1.2
-img2pdf==0.5.1
+img2pdf
