@@ -4,7 +4,9 @@ from admin.routes import admin_bp
 from flask_session import Session
 from config import Config
 from models import db
- 
+import sys
+
+
 app = Flask(__name__)
 app.config.from_object(Config)
 
@@ -20,6 +22,7 @@ app.register_blueprint(admin_bp, url_prefix="/admin")
 
 @app.route("/")
 def home():
+    print(f"Python version: {sys.version}")
     return redirect(url_for('user_bp.login'))
 
 if __name__ == "__main__":
