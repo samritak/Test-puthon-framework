@@ -1,0 +1,33 @@
+<div class="header">
+
+    <div class="icon-section">
+    
+    <h1 class="heading">Dashboard</h1>
+
+    <img class="aarp-icon" style="display: none;"
+    src="{{ url_for('user_bp.static', filename='images/AARP.png') }}" alt="AARP">
+
+    <img class="inogen-icon" style="display: none;"
+    src="{{ url_for('user_bp.static', filename='images/inogen.png') }}" alt="INOGEN">
+
+    <img class="rif-icon" style="display: none;"
+    src="{{ url_for('user_bp.static', filename='images/RIF.png') }}" alt="RIF">
+
+    <img class="jaya-icon" style="display: none;"
+    src="{{ url_for('user_bp.static', filename='images/jaya.png') }}" alt="Jaya">
+
+    <img class="gg-icon" style="display: none;"
+    src="{{ url_for('user_bp.static', filename='images/GG.png') }}" alt="Greeting Genie">
+
+    </div>
+
+    <div class="profile-info">
+        <img class="profile-picture" src="{{ url_for('user_bp.static', filename='images/user.png') }}"
+            alt="Profile Picture">
+
+        <div class="dropdown-menu">
+            <a href="{{ url_for('user_bp.logout') }}" class="dropdown-item">Log Out</a>
+        </div>
+        <span>{% if session.name %} {{ session.name }} {% endif %}</span>
+    </div>
+</div>

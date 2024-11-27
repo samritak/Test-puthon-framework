@@ -3,14 +3,14 @@ import ssl
 from email.message import EmailMessage
 from user.Config.config import Global_Env_Data
 
-from TemplateClass import TemplateClass
+from user.tests.template_class import TemplateClass
 from selenium.webdriver.common.by import By
 from urllib.parse import urlparse
 import time
 import json
 from urllib.parse import parse_qs
 
-class SemetricPage(TemplateClass):
+class SemetricNetwork(TemplateClass):
     global vsixtytesting
     global networkvsixty
     vsizty = False
@@ -51,7 +51,7 @@ class SemetricPage(TemplateClass):
                 vsixtytesting = False
                 pass
         if vsixtytesting != True:
-           SemetricPage.extract_from_logs(self,"v60",log_entries,self.check_campaignid)
+           SemetricNetwork.extract_from_logs(self,"v60",log_entries,self.check_campaignid)
         try:
             self.check_tc_campaign = parse_qs(parsed_url.query)['tc_campaign'][0]
             print("\ntc_campaign parameter is present in query string: ", self.check_tc_campaign)
@@ -88,7 +88,7 @@ class SemetricPage(TemplateClass):
                 vonenintyseventesting = False
                 pass
         if vonenintyseventesting != True  and self.tc_camp_present == True:
-            SemetricPage.extract_from_logs(self,"v197",log_entries,self.check_tc_campaign)
+            SemetricNetwork.extract_from_logs(self,"v197",log_entries,self.check_tc_campaign)
 
     def extract_from_logs(self, value,log_entries,campaignid):
         extracted_value = ''

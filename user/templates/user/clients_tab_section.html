@@ -1,0 +1,37 @@
+<div class="tabsection">
+    <div class="tabs">
+        <a href="{{ url_for('user_bp.aarp_tests') }}">
+            <div class="tabcontent" id="Tab1">
+                <img class="logo" src="{{ url_for('user_bp.static', filename='images/AARP.png') }}" alt="AARP logo">
+                <p class="tabcontent-heading" >AARP</p>
+            </div>
+        </a>
+        <a href="{{ url_for('user_bp.inogen_tests') }}">
+        <div class="tabcontent" id="Tab2">
+            <img class="logo" src="{{ url_for('user_bp.static', filename='images/Inogen.png') }}" alt="Inogen logo">
+            <p class="tabcontent-heading">Inogen</p>
+        </div>
+        </a>
+        <a href="{{ url_for('user_bp.rif_tests') }}">
+        <div class="tabcontent" id="Tab3">
+            <img class="logo riflogo" src="{{ url_for('user_bp.static', filename='images/RIF.png') }}" alt="RIF logo">
+            <p class="tabcontent-heading">RIF</p>
+
+        </div>
+        </a>
+        <a href="{{ url_for('user_bp.jaya_tests') }}">
+        <div class="tabcontent" id="Tab4">
+            <img class="logo jayalogo" src="{{ url_for('user_bp.static', filename='images/jaya.png') }}"
+                alt="jaya logo">
+            <p class="tabcontent-heading">Jaya</p>
+        </div>
+        </a>
+        <a href="{{ url_for('user_bp.greeting_genie_tests') }}">
+        <div class="tabcontent" id="Tab5">
+            <img class="logo gglogo" src="{{ url_for('user_bp.static', filename='images/GG.png') }}"
+                alt="GreetingGenie logo">
+            <p class="tabcontent-heading">Greeting Genie</p>
+        </div>
+        </a>
+    </div>
+</div>

@@ -9,9 +9,9 @@ class Global_Env_Data:
     DEFAULT_DIS_RENEW_CAMPAIGN_ID = "ZDFLTTCD"
     DEFAULT_JOIN_CAMPAIGN_ID = "UDFLTTC"
     DEFAULT_RENEW_CAMPAIGN_ID = "ZDFLTTC"
-    MULTI_URLS = r'/user/Reports/input_files/multi_urls.csv'
-    CSV_FILE_PATH = r'user/Reports/input_files/multi_urls.csv'
-    IMAGE_FILE_PATH = r'user/Reports/image_compare/screenshot/'
+    MULTI_URLS = r'/user/static/input_files/multi_urls.csv'
+    CSV_FILE_PATH = r'user/static/input_files/multi_urls.csv'
+    IMAGE_FILE_PATH = r'user/static/image_compare/screenshot/'
     CHROME = 'chrome'
     FIREFOX = 'firefox'
     LG_COPY_TEXT_VERIFICATION = "1.800.516.2941"
@@ -25,3 +25,4 @@ class Global_Env_Data:
     EMAIL_SENDER = 'tctools@targetclose.com'
     EMAIL_PASSWORD = 'TCTOOLS???'
     EMAIL_RECEIVER = 'basavaraj@targetclose.com'
+    LINUX_CHROME_DRIVER_PATH = '/usr/local/bin/chromedriver'

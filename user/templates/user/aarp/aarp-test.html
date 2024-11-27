@@ -1,0 +1,210 @@
+{% extends "user/base.html" %} {% block title %} AARP Automation - {{ test_title
+}} {% endblock %} {% block heading %}
+{% endblock %} {% block content %}
+<div class="defaultSec">
+  <div class="aarpCheckList">
+    <div class="client-tabs aarp_tabs func-tests">
+      <input type="radio" id="test-automate" checked="checked" />
+      <label for="test-automate"></label>
+      <div class="tab">
+        <div class="header-checkList">
+          {% if test_names %}
+          <h2>Execute Selected AARP Test Cases</h2>
+          {% else %}
+          <h2>Test - {{ test_title }}</h2>
+          {% endif %}
+        </div>
+        {% if test_names %}
+        <div>
+          <p class="step-heading"><span class="step-number">&#9776;</span> You have selected below mentioned Test cases
+            : </p>
+          <div class="step-desc">
+            <p class="step-text" style="text-transform: uppercase;">
+              {{ test_names | replace(',', '<br style="margin-bottom: 10px;">') | safe }}
+            </p>
+          </div>
+        </div>
+        {% endif %}
+        <div class="front-page" id="front-page">
+          <h3 class="step-heading">
+            <span class="step-number">1</span> Download the template csv file
+          </h3>
+          <div class="step-desc">
+            <a class="btn-primary"
+              href="{{ url_for('user_bp.static', filename='csv/template_urls_aarp_input_csv.csv') }}"
+              download="template_urls_aarp_input_csv.csv">Download</a>
+          </div>
+
+          <h3 class="step-heading">
+            <span class="step-number">2</span> Provide the URL details
+          </h3>
+
+          <div class="step-desc step-flex">
+            <div class="step-desc-div">
+              <p class="step-text">Upload CSV file:</p>
+
+              <label class="btn-primary">
+                Upload File
+                <input class="file-input" type="file" id="fileInput" name="file" />
+              </label>
+
+              <p class="file-status" id="file-status">No File uploaded</p>
+            </div>
+
+            <p class="step-text-or" class="step-heading">or</p>
+
+            <div class="step-desc-div">
+              <p class="step-text">Enter the URL:</p>
+              <input class="url-field" id="url" name="url_inp"></input>
+              <p class="file-status" id="url-status"></p>
+            </div>
+          </div>
+
+          <h3 class="step-heading">
+            <span class="step-number">3</span> Enter the test details
+          </h3>
+
+          <div class="step-desc">
+            <div>
+              <p class="step-text">Test Ticket Number:</p>
+              <input class="ticket-input" type="text" name="test_ticket" id="test_ticket" minlength="4" maxlength="20"
+                required value="" />
+            </div>
+            <div>
+              <p class="step-text ticket-description">Test Description:</p>
+              <textarea class="desc-input" id="test_description" name="test_description" cols="40" rows="5"
+                required></textarea>
+            </div>
+
+            <p class="report-error-msg" id="report-error"></p>
+            {% if test_names %}
+            <input type="hidden" name="test_names" id="test_names" value={{test_names}}>
+            {% else %}
+            <input type="hidden" name="test_names" id="test_names" value={{test_name}}>
+            {% endif %}
+
+            <input class="btn-primary" type="button" id="submit-btn" value="Run the Test"
+              onclick="submitTest('/aarp-tests/aarp-test-dynamic')" />
+
+            <img class="submit-loader" id="submit-loader"
+              src="{{ url_for('user_bp.static', filename='images/Loader-spinning.gif') }}" alt="Please wait.." />
+          </div>
+        </div>
+
+        <div class="report-page" id="report-page">
+          <h4 class="result-heading">Your report is ready!</h4>
+          <p class="result-text">Click on the button to download the report</p>
+          <input type="hidden" id="report-name" name="report-name" value="" />
+          <a class="btn-primary" href="" id="report-link" download>Download Report</a>
+          <p class="result-text" id="download-success"></p>
+          <p class="report-error-msg" id="download-error"></p>
+          <p class="result-text">
+            You can also download the updated input csv file that you have
+            uploaded for testing
+          </p>
+          <a class="btn-primary"
+            href="{{ url_for('user_bp.static', filename='input_files/template_urls_aarp_input_csv.csv') }}"
+            download="template_urls_aarp_input_csv.csv">Download Input CSV</a>
+          <a class="btn-primary" href="{{ test_name }}" title="Re-run test">Re-run the Test</a>
+        </div>
+
+        <div class="image-page" id="image-page">
+          <h3 class="step-heading">
+            <span class="step-number">1</span> Upload the figma screenshot
+          </h3>
+          <div class="step-desc">
+            <div>
+              <label class="btn-primary">
+                Upload Figma Screenshot
+                <input class="file-input" type="file" id="ImageInput" name="Imagefile" />
+              </label>
+              <p class="file-status" id="file-status2">No File uploaded</p>
+            </div>
+          </div>
+
+          <h3 class="step-heading">
+            <span class="step-number">2</span>Select comparison type
+          </h3>
+          <div class="step-desc">
+            <div>
+              <select class="comparison_select" id="comparison_select">
+                <option value="Full page">Full Page</option>
+                <option value="Hero section">Hero section</option>
+              </select>
+            </div>
+          </div>
+
+          <h3 class="step-heading">
+            <span class="step-number">3</span>Enter the image width
+          </h3>
+          <div class="step-desc">
+            <div>
+              <select id="Imagewidth">
+                <option value="375">375</option>
+                <option value="768">768</option>
+                <option value="1200">1200</option>
+                <option value="1425">1425</option>
+                <option value="1440">1440</option>
+                <option value="1770">1770</option>
+              </select>
+            </div>
+          </div>
+
+          <h3 class="step-heading">
+            <span class="step-number">4</span>Enter the URL
+          </h3>
+          <div class="step-desc">
+            <div>
+              <textarea class="Imageurl" id="Imageurl" name="Image_url_inp" cols="60" rows="5"></textarea>
+            </div>
+          </div>
+
+          <h3 class="step-heading">
+            <span class="step-number">5</span>Enter the test details
+          </h3>
+          <div class="step-desc">
+            <p class="step-text">Test Ticket Number:</p>
+            <input class="ticket-input" type="text" name="test_ticket" id="test_ticket_img" minlength="4" maxlength="20"
+              required value="" />
+          </div>
+          <div class="step-desc">
+            <p class="step-text ticket-description">Test Description:</p>
+            <textarea class="desc-input" id="test_description_img" name="test_description" cols="40" rows="5"
+              required></textarea>
+            <div>
+              <input class="btn-primary" type="button" id="submit-btn2" value="Run Image Comparison"
+                onclick="submitImageTest()" />
+              <img class="submit-loader" id="submit-loader2"
+                src="{{ url_for('user_bp.static', filename='images/Loader-spinning.gif') }}" alt="loader" />
+              <p class="report-error-msg" id="report-error2"></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="img-report-page" id="img-report-page">
+          <h4 class="result-heading">Your report is ready!</h4>
+          <p class="result-text">
+            Click on the button to download the Chrome Reports
+          </p>
+          <input type="hidden" id="img-report-name1" name="report-name" value="" />
+          <a class="btn-primary img-compare-report-btn" href="javascript:void(0);" id="img-report-link1" download="">Chrome colour Report</a>
+          <input type="hidden" id="img-report-name2" name="report-name" value="" />
+          <a class="btn-primary img-compare-report-btn" href="javascript:void(0);" id="img-report-link2" download="">Chrome Grey Report</a>
+          <input type="hidden" id="img-report-name3" name="report-name" value="" />
+          <input type="hidden" id="img-report-name4" name="report-name" value="" />
+
+          <!-- <p class="result-text">
+            Click on the button to download the Firefox Reports
+          </p>
+          <input type="hidden" id="img-report-name3" name="report-name" value="" />
+          <a class="btn-primary" href="javascript:void(0);" id="img-report-link3" download="">Firefox colour Report</a>
+          <input type="hidden" id="img-report-name4" name="report-name" value="" />
+          <a class="btn-primary" href="javascript:void(0);" id="img-report-link4" download="">Firefox Grey Report</a> -->
+          <p class="result-text" id="img-download-success"></p>
+          <p class="report-error-msg" id="img-download-error"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <img class="tc-logo-image" src="{{ url_for('user_bp.static', filename='images/tc.png') }}" alt="TargetClose">
+    </div>
+
+    <ul class="sidebar-nav">
+        <li class="sidebar-nav-itm">
+            <a href="{{ url_for('user_bp.dashboard') }}" class="sidebar-nav-itm-dashboard">
+                <img class="sidebar-nav-itm-icon" src="{{ url_for('user_bp.static', filename='images/dashboard.png') }}" alt="Dashboard Icon">
+                <p>Dashboard</p>
+            </a>
+        </li>
+        <hr>
+        <li class="sidebar-nav-itm">
+            <a href="{{ url_for('user_bp.aarp_tests') }}" class="sidebar-nav-itm-aarp">
+                <img class="sidebar-nav-itm-icon" src="{{ url_for('user_bp.static', filename='images/aarp.png') }}" alt="aarp Icon">
+                <p>AARP</p>
+            </a>
+        </li>
+        <li class="sidebar-nav-itm">
+            <a href="{{ url_for('user_bp.inogen_tests') }}" class="sidebar-nav-itm-inogen">
+                <img class="sidebar-nav-itm-icon" src="{{ url_for('user_bp.static', filename='images/inogen.png') }}" alt="inogen Icon">
+                <p>Inogen</p>
+            </a>
+        </li>
+        <li class="sidebar-nav-itm">
+            <a href="{{ url_for('user_bp.rif_tests') }}" class="sidebar-nav-itm-rif">
+                <img class="sidebar-nav-itm-icon" src="{{ url_for('user_bp.static', filename='images/RIF.png') }}" alt="Pages Icon">
+                <p>RIF</p>
+            </a>
+        </li>
+        <li class="sidebar-nav-itm">
+            <a href="{{ url_for('user_bp.jaya_tests') }}" class="sidebar-nav-itm-jaya">
+                <img class="sidebar-nav-itm-icon" src="{{ url_for('user_bp.static', filename='images/jaya.png') }}" alt="Charts Icon">
+                <p>Jaya</p>
+            </a>
+        </li>
+        <li class="sidebar-nav-itm" >
+         <a href="{{ url_for('user_bp.greeting_genie_tests') }}" class="sidebar-nav-itm-gg">
+                <img class="sidebar-nav-itm-icon" src="{{ url_for('user_bp.static', filename='images/GG.png') }}" alt="gg Icon">
+                <p>Greeting Genie</p>
+            </a>
+        </li>
+        <hr>
+        <li class="sidebar-nav-itm">
+            <a href="javascript:void(0)">
+                <img class="sidebar-nav-itm-icon" src="{{ url_for('user_bp.static', filename='images/chart.png') }}" alt="Charts Icon">
+                Charts
+            </a>
+        </li>
+        <li class="sidebar-nav-itm">
+            <a href="javascript:void(0)">
+                <img class="sidebar-nav-itm-icon" src="{{ url_for('user_bp.static', filename='images/report.png') }}" alt="Tables Icon">
+                Reports
+            </a>
+        </li>
+    </ul>
+</div>

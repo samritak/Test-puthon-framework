@@ -1,0 +1,311 @@
+img.aarp-icon,
+img.jaya-icon,
+img.inogen-icon,
+img.rif-icon,
+img.gg-icon {
+  width: auto;
+  height: 50px;
+  mix-blend-mode: multiply;
+}
+img.jaya-icon {
+  height: 100px;
+}
+
+img.rif-icon {
+  height: 70px;
+}
+
+img.gg-icon {
+  height: 100px;
+}
+
+.header-checkList {
+  background: #3e66af;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.header-checkList h2 {
+  color: #fff;
+  font-size: 25px;
+  padding: 15px;
+  margin: 0 0 40px 0;
+}
+
+/* tab section */
+
+.client-tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.client-tabs .tab-active {
+  font-weight: bold;
+  padding: 20px;
+  background: #fff;
+  color: #344055;
+  width: 180px;
+  border-radius: 8px;
+  border: 1px solid #cecece;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 50px;
+  border-left: 4px solid #cecece;
+}
+
+.client-tabs input[type="radio"]:checked + label {
+  background: #fff;
+  border-left: 4px solid #3157c4;
+  width: 180px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-right: 50px;
+}
+
+.client-tabs .tab {
+  width: 100%;
+  order: 1;
+  padding: 0;
+  box-shadow: unset;
+  display: none;
+}
+
+.client-tabs input[type="radio"] {
+  display: none;
+}
+
+.client-tabs input[type="radio"]:checked + label + .tab {
+  display: block;
+}
+/* tab section ends */
+
+/* All test case links section */
+.functionality_content {
+  display: flex;
+  margin: 40px 20px;
+}
+
+a.test-case-link {
+  background: #3e66af;
+  color: #fff;
+  margin: 20px 20px 20px 0px;
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  border: 2px solid #3e66af;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
+a.test-case-link:hover {
+  background-color: #fff;
+  color: #3e66af;
+}
+
+.aarp_contents_second_set {
+  margin-left: 50px;
+}
+
+.test-case-div {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+input[type="checkbox"] {
+  accent-color: #3e66af;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+.test-case-label {
+  font-size: 16px;
+}
+/* All test case links section ends */
+
+/* AARP test page CSS */
+
+#front-page input,
+#image-page input {
+  cursor: pointer;
+}
+
+.file-input {
+  display: none;
+}
+
+.step-heading {
+  font-size: 20px;
+  margin: 20px 0;
+  display: flex;
+  font-weight: 600;
+}
+.step-number {
+  background-color: #3e66af;
+  color: #fff;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 20px;
+  margin-right: 20px;
+  position: relative;
+  top: -2px;
+}
+.step-desc {
+  margin-left: 50px;
+  margin-bottom: 40px;
+}
+.step-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+.file-status {
+  font-size: 13px;
+  color: #3e66af;
+  margin: 10px 0 10px 10px;
+  word-wrap: anywhere;
+}
+.step-text-or {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 50%;
+  margin: 25px 0;
+  background: #fff;
+  color: #3e66af;
+  border: 2px solid #3e66af;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  align-self: center;
+}
+.desc-input,
+.ticket-input,
+.url-field,
+.Imageurl {
+  width: 100%;
+  max-width: 350px;
+  border: 2px solid #3e66af;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  margin: 15px auto;
+  font-family: inherit;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.ticket-input {
+  min-height: unset;
+  cursor: auto !important;
+}
+.url-field {
+  margin: 15px auto 0;
+  cursor: auto !important;
+}
+.step-desc.step-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  max-width: 630px;
+  flex-wrap: wrap;
+}
+.step-desc-div {
+  max-width: 40%;
+}
+
+select {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 350px;
+  border: 2px solid #3e66af;
+  font-size: 16px;
+}
+
+/* Change dropdown arrow */
+select::-ms-expand {
+  display: none; /* Hides the default arrow in IE */
+}
+
+select {
+  -moz-appearance: none; /* Remove default styles in Firefox */
+  -webkit-appearance: none; /* Remove default styles in Safari */
+  appearance: none; /* Remove default styles in modern browsers */
+  background-image: url("../images/down-arrow.png"); /* Custom arrow image */
+  background-repeat: no-repeat; /* Prevent repeat */
+  background-position: right 10px center; /* Positioning the arrow */
+  background-size: 25px; /* Size of the arrow */
+}
+
+#report-page,
+#img-report-page,
+#report-error,
+#download-success,
+#download-error,
+#submit-loader,
+#submit-loader2,
+#image-page {
+  display: none;
+}
+
+.report-error-msg {
+  color: #ec1300;
+  font-size: 14px;
+}
+.result-heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+.result-text {
+  font-size: 16px;
+  padding: 20px 0;
+}
+
+.submit-loader {
+  padding: 20px 0;
+  width: 100px;
+  height: auto;
+  mix-blend-mode: multiply;
+  margin-left: 125px;
+}
+
+.func-tests input[type="radio"]:checked + label {
+  display: none;
+}
+/* test secution page CSS */
+
+/* css for report HTML and PDF*/
+.results-table-row span.expander::after {
+  content: " (hide details)";
+}
+.results-table-row tr.collapsed {
+  display: contents;
+}
+
+.results-table-row .log {
+  height: auto;
+}
+.results-table-row .log::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+.results-table-row .log::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+/* Optional: Add a smoother scrolling experience */
+.results-table-row .log {
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* css for report */
